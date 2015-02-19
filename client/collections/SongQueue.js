@@ -5,7 +5,6 @@ var SongQueue = Songs.extend({
     console.log('Song Q- initialize')
     this.on('add', this.enqueue, this)
     this.on('ended', this.playNext, this)
-
   },
 
   enqueue: function(song){
@@ -15,7 +14,8 @@ var SongQueue = Songs.extend({
   },
 
   playNext: function(){
-    this.at(1).play();
+    this.at(0).remove();
+    this.playFirst();
   },
 
   playFirst: function(){
